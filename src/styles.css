@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Newsreader", Georgia, "Times New Roman", serif;
+
+  --color-background: #0c0d0e;
+  --color-foreground: #f2f1ee;
+  --color-card: #15171a;
+  --color-card-foreground: #f2f1ee;
+  --color-muted: #1e2125;
+  --color-muted-foreground: #a7a69f;
+  --color-border: #2c3035;
+  --color-primary: #f2f1ee;
+  --color-primary-foreground: #141618;
+  --color-secondary: #1e2125;
+  --color-secondary-foreground: #f2f1ee;
+  --color-ring: #c5cdd6;
+  --color-accent: #c5cdd6;
+  --color-accent-foreground: #141618;
+
+  --radius-md: 0.5rem;
+  --radius-xl: 1.5rem;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled),
+  summary {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: #c5cdd6;
+    color: #141618;
+  }
+}
+
+.safe-screen {
+  padding-top: max(1rem, env(safe-area-inset-top));
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+
+.safe-x {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+
+.safe-top {
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+}
+
+.safe-bottom {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
